@@ -1,0 +1,13 @@
+nav{
+    background-color: aqua;
+}
+
+#pongCanvas{
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+.pongContainer{
+    display: flex;
+    justify-content: center;
+}
