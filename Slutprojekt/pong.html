@@ -18,18 +18,34 @@
         <canvas id="pongCanvas" width="800px" height="500px"></canvas>
     </div>
     <script>
+        let r1Move = 200;
+        let r1Stay = 130;
+
         let canvas = document.getElementById("pongCanvas");
         let height = canvas.height;
         let width = canvas.width;
         const ctx = canvas.getContext("2d");
 
         ctx.fillStyle = "rgb(255, 0, 0)";
-        ctx.fillRect(30, 0, 20, 130);
+        //ctx.fillRect(30, r1Move, 20, r1Stay);
         
 
-        function pongTryck(){
-            alert("hej");
+        document.onkeydown = function pongTryck(e){
+            //alert(e);
+            let pongCode= e.keyCode;
+            //alert(pongCode);
+
+            if(pongCode = 40){
+                r1Move = r1Move +50;
+                r1Stay = r1Stay -50;
+
+            }
+            ctx.fillRect(30, r1Move, 20, 90);
+            ctx.clearRect();
+            //CanvasRenderingContext2D.clearRect()
         }
+        
+    
         </script>
 </body>
 </html>
