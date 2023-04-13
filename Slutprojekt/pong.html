@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pong</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <div onkeydown="pongTryck()"></div>
     <header>
-        <nav>
-            <a href="./index.html">Hem</a>
-        </nav>
+      <nav>
+        <a href="./index.html">Hem</a>
+      </nav>
     </header>
     <div class="pongContainer">
-        <canvas id="pongCanvas" width="800px" height="500px"></canvas>
+      <canvas id="pongCanvas" width="800px" height="500px"></canvas>
     </div>
+
     <script>
-        let r1Move = 200;
-        let r1Stay = 130;
+      alert("hejsan");
+      let r1Move = 200;
+      let r1Stay = 130;
 
-        let canvas = document.getElementById("pongCanvas");
-        let height = canvas.height;
-        let width = canvas.width;
-        const ctx = canvas.getContext("2d");
+      let canvas = document.getElementById("pongCanvas");
+      let height = canvas.height;
+      let width = canvas.width;
+      const ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "rgb(255, 0, 0)";
-        //ctx.fillRect(30, r1Move, 20, r1Stay);
-        
+      ctx.fillStyle = "rgb(255, 0, 0)";
+      //ctx.fillRect(30, r1Move, 20, r1Stay);
 
-        document.onkeydown = function pongTryck(e){
-            //alert(e);
-            let pongCode= e.keyCode;
-            //alert(pongCode);
+      document.onkeydown = function pongTryck(e) {
+        //alert(e);
+        let pongCode = e.keyCode;
+        //alert(pongCode);
 
-            if(pongCode = 40){
-                r1Move = r1Move +50;
-                r1Stay = r1Stay -50;
-
-            }
-            ctx.fillRect(30, r1Move, 20, 90);
-            ctx.clearRect();
-            //CanvasRenderingContext2D.clearRect()
+        if ((pongCode = 40)) {
+          r1Move = r1Move + 50;
+          r1Stay = r1Stay - 50;
         }
-        
-    
-        </script>
-</body>
+        ctx.fillRect(30, r1Move, 20, 90);
+        ctx.clearRect();
+        //CanvasRenderingContext2D.clearRect()
+      };
+    </script>
+  </body>
 </html>
