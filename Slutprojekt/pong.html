@@ -12,6 +12,7 @@
     <header>
         <nav>
             <a href="./index.html">Hem</a>
+            <a href="./pong.html">Pong</a>
         </nav>
     </header>
     <div class="pongContainer">
@@ -27,7 +28,7 @@
         const ctx = canvas.getContext("2d");
 
         ctx.fillStyle = "rgb(255, 0, 0)";
-        //ctx.fillRect(30, r1Move, 20, r1Stay);
+        ctx.fillRect(30, r1Move, 20, 130);
         
 
         document.onkeydown = function pongTryck(e){
@@ -35,15 +36,19 @@
             let pongCode= e.keyCode;
             //alert(pongCode);
 
-            if(pongCode = 40){
-                r1Move = r1Move +50;
-                r1Stay = r1Stay -50;
-
+            ctx.clearRect(30, r1Move, 20, 130);
+            if(pongCode == 40 && r1Move != 10){
+                r1Move = r1Move +4;
+                r1Stay = r1Stay -4;
+            } else if(pongCode == 38 && r1Move != 0){
+                r1Move = r1Move -4;
+                r1Stay = r1Stay +4;
             }
-            ctx.fillRect(30, r1Move, 20, 90);
-            ctx.clearRect();
-            //CanvasRenderingContext2D.clearRect()
+            ctx.fillRect(30, r1Move, 20, 130);
+            
         }
+
+
         
     
         </script>

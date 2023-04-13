@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+body{
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
 nav{
     background-color: aqua;
+    font-size: 30px;
+    text-align: center;
+    
 }
 
 #pongCanvas{
@@ -11,3 +19,8 @@ nav{
     display: flex;
     justify-content: center;
 }
+
+footer{
+    background-color: aqua;
+}
+
