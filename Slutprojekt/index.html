@@ -9,23 +9,56 @@
   </head>
   <body>
     <header>
-        <nav>
+      <nav>
+        <div class="dropMenu">
+          <button type="menu" onclick="menuFunction()">Hejsan</button>
+          <a href="./pong.html" id="pong"></a>
+          <a href="./hang.html" id="hang"></a>
+        </div>
+          
+          <div class="mainNav">
             <a href="./index.html">Hem</a>
             <a href="./pong.html">Pong</a>
+            <a href="./hang.html">Hänga gubbe</a>
+          </div>
         </nav>
-      <nav>
-        <a href="./pong.html">Pong</a>
-      </nav>
-    </header>
-    <div class="scrollMenu">
-        
-    </div>
-    <h1>Hej</h1>
-    <h2>Testar testar</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae est amet perspiciatis 
-        exercitationem eius facilis reiciendis atque obcaecati, minima recusandae suscipit et 
-        dolorem, velit dicta totam voluptas nemo doloremque provident.</p>
+      
+      </header>
+    <div class="main">
 
-    <footer></footer>
+      <div class="reklam">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati deleniti vitae perferendis officia 
+          quod eveniet illum nemo impedit laborum est repudiandae, nobis provident inventore maxime, veritatis 
+          facere a. Hic, repellendus. Veniam velit quo fuga cum consequatur! Tenetur harum fugit, pariatur 
+          sunt deserunt, veritatis saepe non velit expedita quasi voluptates voluptate architecto, 
+          vitae sit placeat ullam! Qui cupiditate quibusdam magni aspernatur!</p>
+          <img src="./bilder/American_Alligator.jpg" alt="Alligator">
+        </div>
+        <h2>Spela själv eller  med en vän</h2>
+        <div class="toGame">
+          <a href="./pong.html"><img src="./bilder/hkid.jpeg" alt="Alone"></a>
+          <a href="./hang.html"><img src="./bilder/BestoutdorTreeSwingSet_2_800x.jpg" alt="Two players"></a>
+        </div>
+      </div>
+
+    <footer>
+      <p> &copy; Elliott 2023 <br> Don't steal</p>
+    </footer>
+    <script>
+      let close =0;
+      function menuFunction(){
+        document.getElementById("pong").innerHTML = "Pong";
+        document.getElementById("hang").innerHTML = "Hangman";
+        close++;
+
+        if(close == 2){
+          document.getElementById("pong").innerHTML = "";
+          document.getElementById("hang").innerHTML = "";
+          close = 0;
+        }
+      }
+
+
+    </script>
   </body>
 </html>

@@ -12,8 +12,10 @@
     <header>
 
         <nav>
+          <button type="menu" onclick="">Hejsan</button>
             <a href="./index.html">Hem</a>
             <a href="./pong.html">Pong</a>
+            <a href="./hang.html">Hänga gubbe</a>
         </nav>
 
     </header>
@@ -22,8 +24,7 @@
     </div>
 
     <script>
-      alert("hejsan detta är en förändring");
-      alert("och det här en annan förändring");
+      
       let r1Move = 200;
       let r1Stay = 130;
 
@@ -43,16 +44,15 @@
         let pongCode = e.keyCode;
         //alert(pongCode);
 
-
-        if ((pongCode = 40)) {
+        
+        if ((pongCode == 40)) {
           r1Move = r1Move + 50;
           r1Stay = r1Stay - 50;
+          ctx.fillRect(30,r1Move, 20, r1Stay);
         }
-        ctx.fillRect(30, r1Move, 20, 90);
-        ctx.clearRect();
-        //CanvasRenderingContext2D.clearRect()
+        
       };
     </script>
   </body>
 </html>
->>>>>>> 0e595965d7d815747e775d86c83b248967257ec7
+

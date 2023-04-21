@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hänga gubbe</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+        <nav>
+            <button type="menu" onclick="">Hejsan</button>
+            <a href="./index.html">Hem</a>
+            <a href="./pong.html">Pong</a>
+            <a href="./hang.html">Hänga gubbe</a>
+        </nav>
+    </header>
+    <canvas
+      id="myCanvas"
+      width="900"
+      height="575"
+      style="border: 3px solid black"
+    >
+    </canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      let inputWord = prompt("Enter your word");
+      word = inputWord.toLowerCase();
+
+      let line;
+      let wrongRepeats = 0;
+
+      if (word.length <= 5) {
+        line = 420;
+      } else if (word.length >= 10) {
+        line = 250;
+      } else if (word.length > 5) {
+        line = 300;
+      }
+
+      for (i = 0; i < word.length; i++) {
+        ctx.moveTo(line, 475);
+        ctx.lineTo(line + 30, 475);
+        ctx.stroke();
+
+        line = line + 50;
+      }
+
+      let count = 0;
+      let yPos = 50;
+      let xPos = 50;
+      let k = 0;
+      let l = 50;
+      let please = 0;
+      let whole = 0;
+
+      function init() {
+        init.called = true;
+      }
+      window.addEventListener("keyup", function (event) {
+        for (o = 0; o < word.length; o++) {
+          let letter = word.substr(o, 1);
+
+          if (event.key === letter) {
+            rightAnswer();
+          }
+
+          if (event.key !== word.substr(o, 1)) {
+            whole++;
+
+            if (whole === word.length) {
+              wrongAnswer();
+            }
+          }
+        }
+        whole = 0;
+      });
+
+      function rightAnswer() {
+        whole = 0;
+        if (word.length <= 5) {
+          line = 425;
+        } else if (word.length >= 10) {
+          line = 255;
+        } else if (word.length > 5) {
+          line = 305;
+        }
+
+        for (k = 0; k < word.length; k++) {
+          if (event.key === word.substr(k, 1)) {
+            let where = line + k * l;
+            ctx.font = "30px Arial";
+            ctx.strokeText(event.key, where, 470);
+          }
+        }
+      }
+
+      function wrongAnswer() {
+        whole = 0;
+        ctx.font = "30px Arial";
+        ctx.strokeText(event.key, xPos, yPos);
+        xPos = xPos + 50;
+        if (xPos >= 250) {
+          yPos = yPos + 100;
+          xPos = 50;
+        }
+
+        if (wrongRepeats === 0) {
+          ctx.beginPath();
+          ctx.arc(450, 200, 60, 0, 2 * Math.PI);
+
+          ctx.fillStyle = "green";
+          ctx.fill();
+
+          ctx.fillStyle = "white";
+          ctx.fillRect(375, 200, 140, 125);
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 4) {
+          ctx.moveTo(450, 140);
+          ctx.lineTo(450, 60);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 8) {
+          ctx.moveTo(450, 60);
+          ctx.lineTo(520, 60);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 12) {
+          ctx.moveTo(520, 60);
+          ctx.lineTo(520, 80);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 16) {
+          //face
+          ctx.beginPath();
+          ctx.arc(520, 90, 11, 0, 2 * Math.PI);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 20) {
+          //body
+          ctx.moveTo(520, 100);
+          ctx.lineTo(520, 145);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 24) {
+          //legs
+          ctx.moveTo(520, 145);
+          ctx.lineTo(503, 167);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 28) {
+          ctx.moveTo(520, 145);
+          ctx.lineTo(537, 167);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 32) {
+          //arms
+          ctx.moveTo(520, 110);
+          ctx.lineTo(505, 130);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 36) {
+          ctx.moveTo(520, 110);
+          ctx.lineTo(535, 130);
+          ctx.stroke();
+
+          wrongRepeats = wrongRepeats + 4;
+        } else if (wrongRepeats === 40) {
+          ctx.fillStyle = "red";
+          ctx.fillRect(275, 140, 350, 250);
+
+          ctx.font = "30px Arial";
+          ctx.strokeText("You lose", 370, 250);
+        }
+      }
+    </script>
+  </body>
+</html>
