@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boring</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./global.js">
   </head>
   <body>
     <header>
-      <div class="dropMenu">
-        <button type="menu" onclick="menuFunction()"></button> 
-        <a href="./pong.html" id="pong"></a>
-        <a href="./hang.html" id="hang"></a>
+      <button type="menu" onclick="menuFunction()" class="dropMenuButton"><img src="./bilder/ham.png" alt="Hamburgare"></button> 
+      <div id="dropMenu">
+        <p id="titelmenu"></p> 
+        <a href="./pong.html" id="pong"></a> 
+        <a href="./hang.html" id="hang"></a> 
+        <a href="./quiz.html" id="quiz"></a> 
+        
       </div>
       <nav>
           
@@ -20,6 +24,7 @@
             <a href="./index.html">Hem</a>
             <a href="./pong.html">Pong</a>
             <a href="./hang.html">Hänga gubbe</a>
+            <a href="./quiz.html">Quiz</a>
           </div>
         </nav>
       
@@ -44,20 +49,10 @@
     <footer>
       <p> &copy; Elliott 2023 <br> Don't steal</p>
     </footer>
+    <script src="./global.js"></script>
+    
     <script>
-      let close =0;
-      function menuFunction(){
-        document.getElementById("pong").innerHTML = "Pong";
-        document.getElementById("hang").innerHTML = "Hangman";
-        close++;
-
-        if(close == 2){
-          document.getElementById("pong").innerHTML = "";
-          document.getElementById("hang").innerHTML = "";
-          close = 0;
-        }
-      }
-
+      
 
     </script>
   </body>

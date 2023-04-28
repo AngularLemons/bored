@@ -9,11 +9,19 @@
   </head>
   <body>
     <header>
-        <nav>
-            <button type="menu" onclick="">Hejsan</button>
-            <a href="./index.html">Hem</a>
+        <div class="dropMenu">
+        <button type="menu" onclick="menuFunction()"></button> 
+        <a href="./pong.html" id="pong"></a>
+        <a href="./hang.html" id="hang"></a>
+      </div>
+      <nav>
+          
+          <div class="mainNav">
+            <a href="./index.html">Hem</a> 
             <a href="./pong.html">Pong</a>
             <a href="./hang.html">Hänga gubbe</a>
+            <a href="./quiz.html">Quiz</a>
+          </div>
         </nav>
     </header>
     <canvas
@@ -21,8 +29,10 @@
       width="900"
       height="575"
       style="border: 3px solid black"
+      
     >
     </canvas>
+    <script src="./global.js"></script>
     <script>
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");

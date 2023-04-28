@@ -7,19 +7,53 @@ body{
 }
 
 
+header{
+    border-bottom: 2px solid white;
+    
+    margin-bottom: 20px;
+}
+
 .mainNav{
     font-size: 30px;
     text-align: center;
-   
+    margin-bottom: 10px 0 10px 0;
+    padding: 10px;
     
 }
 
-.dropMenu{
+#dropMenu{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 90px;
+    
     background-color: blueviolet;
+    position: absolute;
+}
+
+#dropMenu a{
+    margin: auto;
+    width: 150px;
+}
+
+#dropMenu p{
+  margin: auto;
+    width: 150px;  
+}
+
+.dropMenuButton img{
+    width: 30px;
+    height: auto;
+    padding: 10px;
+}
+
+.dropMenuButton{
+    background-color:rgb(31, 27, 24) ;
+    border: none;
+}
+
+#titelMenu{
+    padding: 0 100px 0 100px;
+    width: 150px;
 }
 
 h2{
@@ -42,6 +76,7 @@ footer{
 
 #myCanvas {
   margin-left: 200px;
+  background-color: white;
 }
 
 .reklam{

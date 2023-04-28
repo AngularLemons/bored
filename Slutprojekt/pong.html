@@ -10,12 +10,20 @@
   <body>
     <div onkeydown="pongTryck()"></div>
     <header>
-
-        <nav>
-          <button type="menu" onclick="">Hejsan</button>
+      
+      <div class="dropMenu">
+        <button type="menu" onclick="menuFunction()"></button> 
+        <a href="./pong.html" id="pong"></a>
+        <a href="./hang.html" id="hang"></a>
+      </div>
+      <nav>
+          
+          <div class="mainNav">
             <a href="./index.html">Hem</a>
             <a href="./pong.html">Pong</a>
             <a href="./hang.html">Hänga gubbe</a>
+            <a href="./quiz.html">Quiz</a>
+          </div>
         </nav>
 
     </header>
@@ -23,35 +31,58 @@
       <canvas id="pongCanvas" width="800px" height="500px"></canvas>
     </div>
 
-    <script>
-      
-      let r1Move = 200;
-      let r1Stay = 130;
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam ducimus natus explicabo cum, aut, temporibus magnam optio ex enim culpa expedita quos ipsa repudiandae nesciunt corporis earum voluptas! Nisi, natus!
+    Quo dicta similique reprehenderit ea nemo consectetur eaque fugiat suscipit, saepe architecto voluptas ab nostrum cumque sequi? Voluptatum odit repudiandae animi incidunt necessitatibus iusto placeat dolorum. Possimus deleniti praesentium nemo.
+    Sed repellendus nisi laudantium maxime recusandae? Quae error corrupti natus maiores officiis iure fuga quos dolorum repellat odio a dignissimos corporis, maxime, animi magnam adipisci itaque pariatur nulla amet reprehenderit.</p>
 
+    <script src="./global.js"></script>
+    <script>
+    
       let canvas = document.getElementById("pongCanvas");
       let height = canvas.height;
       let width = canvas.width;
       const ctx = canvas.getContext("2d");
 
+      const bollRadie = 20;
 
-        ctx.fillStyle = "rgb(255, 0, 0)";
-        ctx.fillRect(30, r1Move, 20, 130);
+      let x = canvas.width / 2;
+      let y = canvas.height - 30;
+
+
+      let dx = 2;
+      let dy = -2;
+      
+      
+      function drawBall(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, bollRadie, 0, Math.PI * 2, false);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
         
+        x += dx;
+        y += dy;
+       
+        if(x+dx == canvas.width || x+dx == 0){
+          dx = -dx;
+        }
 
-
-      document.onkeydown = function pongTryck(e) {
-        //alert(e);
-        let pongCode = e.keyCode;
-        //alert(pongCode);
-
-        
-        if ((pongCode == 40)) {
-          r1Move = r1Move + 50;
-          r1Stay = r1Stay - 50;
-          ctx.fillRect(30,r1Move, 20, r1Stay);
+        if(y+dy == canvas.height|| y +dy == 0){
+          dy = -dy;
         }
         
-      };
+      }
+
+      setInterval(drawBall, 10);
+
+
+
+      /*alert(canvas.width + "width");
+      alert(canvas.height + "height");*/
+
+
+        
     </script>
   </body>
 </html>
